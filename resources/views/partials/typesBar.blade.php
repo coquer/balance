@@ -1,11 +1,3 @@
-<style>
-    .tabs li{
-        background-color: transparent;
-        border-color: #167df0;
-        color: #167df0;
-    }
-
-</style>
 <div class="tabs is-centered is-boxed">
     <ul>
         @foreach($types as $type)
@@ -15,7 +7,7 @@
 </div>
 
 
-<div class="tabs is-centered">
+<div class="tabs is-centered is-small">
     <ul>
         <li><a  href="{{route('types.create')}}">יצירת תגית חדשה</a></li>
         <li><a  href="{{route('activities.create')}}">יצירת פעילות חדשה</a></li>
