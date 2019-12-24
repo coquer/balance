@@ -15,7 +15,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $types = Type::all();
-        return view('home', compact('types'));
+        return view('home');
     }
 }

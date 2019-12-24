@@ -12,6 +12,12 @@ use JavaScript;
 class TypeController extends Controller
 {
     use Chartable;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -54,7 +60,7 @@ class TypeController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Type  $type
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show(Type $type)
     {

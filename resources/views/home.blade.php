@@ -3,13 +3,6 @@
 @section('content')
         <div class="columns is-centered m-1">
             <div class="column is-7">
-                <div class="tabs is-centered is-boxed">
-                    <ul>
-                        @foreach($types as $type)
-                        <li><a href="{{route('types.show', $type)}}">{{$type->name}}</a></li>
-                  @endforeach
-                    </ul>
-                </div>
                 <nav class="card">
                     <header class="card-header">
                         <a class="button is-fullwidth" href="{{route('types.create')}}">צור תגית חדשה</a>
@@ -33,12 +26,6 @@
                                 </div>
                             </div>
                         </div>
-                    </header>
-                    <hr>
-                    <header class="card-header">
-                        <a class="button is-fullwidth" href="{{route('types.create')}}">צור תגית חדשה</a>
-                        <a class="button is-fullwidth" href="{{route('activities.create')}}">צור פעילות חדשה</a>
-                        <a class="button is-fullwidth">בדיקת פעילות</a>
                     </header>
                 </nav>
             </div>

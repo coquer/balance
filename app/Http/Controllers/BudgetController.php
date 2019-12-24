@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class BudgetController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only('index');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,8 +25,6 @@ class BudgetController extends Controller
     {
         $currentMonthBudget = Budget::where('user_id', Auth::user()->id)->whereMonth('created_at', Carbon::now()->month)->latest()->pluck('budget')->first();
         $totalExpensesThisMonth = auth()->user()->activity()->whereMonth('paid_at', Carbon::now()->month)->sum('amount');
-//        dd($currentMonthBudget);
-
         return view('budget.index', compact('currentMonthBudget', 'totalExpensesThisMonth'));
     }
 

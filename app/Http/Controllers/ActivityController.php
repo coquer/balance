@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ActivityController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +33,7 @@ class ActivityController extends Controller
     {
         $types = Type::all();
         $types->makeHidden(['created_at', 'updated_at']);
-       return view('activities.create', compact('types'));
+        return view('activities.create', compact('types'));
     }
 
     /**
