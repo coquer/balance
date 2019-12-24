@@ -1,3 +1,11 @@
+<style>
+    .tabs li{
+        background-color: transparent;
+        border-color: #167df0;
+        color: #167df0;
+    }
+
+</style>
 <div class="tabs is-centered is-boxed">
     <ul>
         @foreach($types as $type)
@@ -7,12 +15,11 @@
 </div>
 
 
-<div class="columns is-centered m-1">
-    <div class="column is-5">
-        <div class="buttons">
-            <a class="button  is-dark is-outlined" href="{{route('types.create')}}">יצירת תגית חדשה</a>
-            <a class="button  is-dark is-outlined" href="{{route('activities.create')}}">יצירת פעילות חדשה</a>
-            <a class="button  is-dark is-outlined" href="{{route('budget.index')}}">התקציב שלי</a>
-        </div>
-    </div>
+<div class="tabs is-centered">
+    <ul>
+        <li><a  href="{{route('types.create')}}">יצירת תגית חדשה</a></li>
+        <li><a  href="{{route('activities.create')}}">יצירת פעילות חדשה</a></li>
+        <li><a href="{{route('budget.index')}}">התקציב שלי</a></li>
+    </ul>
 </div>
+

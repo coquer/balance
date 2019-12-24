@@ -15,8 +15,8 @@
 <body>
     <div id="app">
         @include('partials.navbar')
+        @include('partials.typesBar')
         <main class="container">
-            @include('partials.typesBar')
             @yield('content')
         </main>
     </div>
