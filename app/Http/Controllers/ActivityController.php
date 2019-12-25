@@ -49,7 +49,8 @@ class ActivityController extends Controller
             'paid_at' => 'required',
             'amount' => 'required',
             'confirmation' => 'required',
-            'info' => 'required'
+            'info' => 'required',
+            'bill_id' => 'required'
         ]);
 
         Activity::create(["user_id" => Auth::user()->id] + $attributes);

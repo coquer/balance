@@ -20,6 +20,9 @@
             <b-field label="אסמכתא/אישור תשלום">
                 <b-input type="number" placeholder="מספר אסמכתא או אישור תשלום" name="confirmation"></b-input>
             </b-field>
+            <b-field label="מספר החשבונית/ספח ששולמה">
+                <b-input type="number" placeholder="מספר החשבונית/ספח ששולמה" name="bill_id"></b-input>
+            </b-field>
             <b-field label="מתי זה שולם?">
                 <input type="date" id="paid_at" name="paid_at" class="input">
             </b-field>
