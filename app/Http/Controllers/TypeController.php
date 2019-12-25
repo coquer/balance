@@ -65,8 +65,9 @@ class TypeController extends Controller
     public function show(Type $type)
     {
         $chartData = $this->buildChartData($type);
+        $typeActivitiesList = $type->activity()->get();
 
-        JavaScript::put(["amounts"=> Arr::flatten($chartData), "nameOfChart" => $type->name]);
+        JavaScript::put(["amounts"=> Arr::flatten($chartData), "nameOfChart" => $type->name, 'typeActivitiesList'=>$typeActivitiesList]);
         return view('types.show', compact('type'));
     }
 

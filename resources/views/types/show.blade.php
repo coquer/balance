@@ -9,15 +9,17 @@
 
 @section('content')
     <div class="columns is-centered m-1">
+        <div class="column is-7">
+            <canvas id="myChart" aria-label="טבלת נתונים עבור הוצאות" role="img"></canvas>
+        </div>
         <div class="column is-3 m-1">
             <div class="box">
                 <p>
                     סך התשלומים המצטברים עבור {{$type->name}}: <strong>{{$type->activity->sum('amount')}}</strong> ש"ח.
                 </p>
             </div>
-        </div>
-        <div class="column is-7">
-            <canvas id="myChart" aria-label="טבלת נתונים עבור הוצאות" role="img"></canvas>
+            <hr>
+            <type-activities-list></type-activities-list>
         </div>
     </div>
 

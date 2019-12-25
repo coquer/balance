@@ -10,7 +10,8 @@ import Vue from 'vue';
 import Buefy from "buefy";
 Vue.use(Buefy)
 
-
+import TypeActivitiesList from "./components/TypeActivitiesList";
+Vue.component('type-activities-list', TypeActivitiesList);
 
 const app = new Vue({
     el: '#app'
