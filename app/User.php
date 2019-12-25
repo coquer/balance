@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -18,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password',
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -38,10 +41,10 @@ class User extends Authenticatable
     ];
 
     public function activity(){
-        return $this->hasMany(Activity::class);
+        return $this->hasMany(Activity::class)->whereMonth('paid_at', Carbon::now()->month)->sum('amount');
     }
 
     public function budget(){
-        return $this->hasMany(Budget::class);
+        return $this->hasMany(Budget::class)->whereMonth('created_at', Carbon::now()->month)->latest()->pluck('budget')->first();
     }
 }

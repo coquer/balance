@@ -23,8 +23,11 @@ class BudgetController extends Controller
      */
     public function index()
     {
-        $currentMonthBudget = Budget::where('user_id', Auth::user()->id)->whereMonth('created_at', Carbon::now()->month)->latest()->pluck('budget')->first();
-        $totalExpensesThisMonth = auth()->user()->activity()->whereMonth('paid_at', Carbon::now()->month)->sum('amount');
+
+        $currentMonthBudget = auth()->user()->budget();
+        $totalExpensesThisMonth = auth()->user()->activity();
+//        dd($currentMonthBudget, $totalExpensesThisMonth);
+
         return view('budget.index', compact('currentMonthBudget', 'totalExpensesThisMonth'));
     }
 

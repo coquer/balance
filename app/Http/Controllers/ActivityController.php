@@ -31,9 +31,8 @@ class ActivityController extends Controller
      */
     public function create()
     {
-        $types = Type::all();
-        $types->makeHidden(['created_at', 'updated_at']);
-        return view('activities.create', compact('types'));
+
+        return view('activities.create');
     }
 
     /**
