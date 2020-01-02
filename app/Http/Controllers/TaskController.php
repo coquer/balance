@@ -44,9 +44,10 @@ class TaskController extends Controller
         $task = Task::create(['user_id' => Auth::user()->id] + $attr);
 
         if(request()->expectsJson()){
+            $request->session()->flash('flash', 'הפתק נוסף בהצלחה');
             return $task;
         }
-        return back();
+        return back()->with('flash', 'הפתק לא נוסף בהצלחה');
     }
 
     /**
@@ -91,6 +92,10 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+        if(request()->expectsJson()){
+            return 'הפתק נמחק בהצלחה';
+        }
+        return "nothing here";
     }
 }

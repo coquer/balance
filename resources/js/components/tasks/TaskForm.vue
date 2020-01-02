@@ -1,15 +1,15 @@
 <template>
 <section class="m-1">
-    <b-field label="מה צריך לעשות?">
-        <b-input placeholder="מה צריך לעשות?" name="content" v-model="content"></b-input>
-    </b-field>
+        <b-field label="מה צריך לעשות?">
+            <b-input placeholder="מה צריך לעשות?" name="content" v-model="content"></b-input>
+        </b-field>
 
-    <b-field label="לאיזה נושא זה קשור?">
-        <b-select placeholder="בחר/י נושא" class="rtl" name="type_id" id="type">
-            <option v-for="(type, index) in types" :key="index" :value="type.id">{{type.name}}</option>
-        </b-select>
-    </b-field>
-    <button class="button" @click="save">שלח</button>
+        <b-field label="לאיזה נושא זה קשור?">
+            <b-select placeholder="בחר/י נושא" class="rtl" name="type_id" id="type">
+                <option v-for="(type, index) in types" :key="index" :value="type.id">{{type.name}}</option>
+            </b-select>
+        </b-field>
+        <button class="button" @click="save">שלח</button>
 </section>
 </template>
 
@@ -43,6 +43,14 @@
                 });
 
                 EventBus.$emit('addTask', task)
+                EventBus.$emit('flash', 'הפתק נוסף בהצלחה')
+
+                this.clearInputs()
+
+            },
+            clearInputs(){
+                const target = document.getElementById("type");
+                target.value = '';
             }
         }
 
