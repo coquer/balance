@@ -1,7 +1,5 @@
 <template>
 <div>
-    <h5 class="title is-5">הפתקים שלי</h5>
-
     <div v-for="(task, index) in notes" :key="index">
         <task :task="task"></task>
     </div>

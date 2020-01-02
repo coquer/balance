@@ -10,6 +10,12 @@
     <title>@yield('title')</title>
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alef&amp;display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Alef', sans-serif;
+        }
+    </style>
     @yield('css')
 </head>
 <body>

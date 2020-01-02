@@ -1,5 +1,5 @@
 <template>
-<section>
+<section class="m-1">
     <b-field label="מה צריך לעשות?">
         <b-input placeholder="מה צריך לעשות?" name="content" v-model="content"></b-input>
     </b-field>
