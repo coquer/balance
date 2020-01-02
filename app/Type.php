@@ -11,7 +11,10 @@ class Type extends Model
 
 
      public function activity(){
-
          return $this->hasMany(Activity::class)->where('user_id', Auth::user()->id);
+     }
+
+     public function task(){
+         return $this->hasMany(Task::class)->where('done', false);
      }
 }

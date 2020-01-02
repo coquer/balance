@@ -47,4 +47,8 @@ class User extends Authenticatable
     public function budget(){
         return $this->hasMany(Budget::class)->whereMonth('created_at', Carbon::now()->month)->latest()->pluck('budget')->first();
     }
+
+    public function task(){
+        return $this->hasMany(Task::class)->where('done', false)->get();
+    }
 }

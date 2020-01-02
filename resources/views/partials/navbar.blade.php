@@ -1,4 +1,4 @@
-<nav class="navbar has-shadow" role="navigation" style="direction: rtl;">
+<nav class="navbar" role="navigation" style="direction: rtl;">
     <div class="container">
         <div class="navbar-brand">
             <a href="{{ url('/') }}" class="navbar-item" tabindex="1" style="margin-bottom:0"><img src="{{asset('storage/icons/balance-logo.png')}}" alt=""></a>

@@ -24,7 +24,7 @@
                 <b-input type="number" placeholder="מספר החשבונית/ספח ששולמה" name="bill_id"></b-input>
             </b-field>
             <b-field label="מתי זה שולם?">
-                <input type="date" id="paid_at" name="paid_at" class="input">
+                <input type="datetime-local" id="paid_at" name="paid_at" class="input">
             </b-field>
             <b-field label="מידע נוסף">
                 <b-input type="text" placeholder="איך שולם(אשראי/מזומן)/איפה שולם(באינטרנט/בדואר)" name="info"></b-input>

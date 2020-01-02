@@ -89,7 +89,6 @@
       <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
-      <path value="$PROJECT_DIR$/vendor/gabmic/hebrew-bulma-preset" />
       <path value="$PROJECT_DIR$/vendor/laracasts/utilities" />
     </include_path>
   </component>

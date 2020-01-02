@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Type;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -15,6 +14,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        Auth::check() ? $tasks = Auth::user()->task() : $tasks = null;
+
+        return view('home', compact('tasks'));
     }
 }

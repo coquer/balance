@@ -12,6 +12,13 @@
     <div class="columns is-centered m-1">
         <div class="column is-7">
             <canvas id="myChart" aria-label="טבלת נתונים עבור הוצאות" role="img"></canvas>
+            <hr>
+            <h6 class="title is-6">דברים לזכור לגבי התגית <b>{{$type->name}}</b> </h6>
+            <div class="list" style="max-width: 50%">
+                @foreach($type->task as $task)
+                   <div class="list-item"> {{$task->content}}</div>
+                @endforeach
+            </div>
         </div>
         <div class="column is-3 m-1">
             <div class="box">

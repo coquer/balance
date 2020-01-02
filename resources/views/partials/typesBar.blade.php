@@ -1,4 +1,4 @@
-<div class="tabs is-centered is-boxed">
+<div class="tabs is-centered is-small">
     <ul>
         @foreach($types as $type)
             <li><a href="{{route('types.show', $type)}}">{{$type->name}}</a></li>
