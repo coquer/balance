@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         View::composer('*', function($view){
-            $types = Type::all();
+            $types = Type::orderBy('name', 'asc')->get();
             $view->with('types', $types);
         });
     }
