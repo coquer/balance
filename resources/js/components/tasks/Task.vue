@@ -2,7 +2,7 @@
         <div class="message">
             <div class="message-body">
                 <p>{{task.content}}</p>
-                <button class="button is-small is-danger is-light" @click="deleteTask">סיימתי עם זה</button>
+                <button class="button is-small is-primary is-outlined" @click="deleteTask">סיימתי עם זה</button>
             </div>
         </div>
 </template>
@@ -11,12 +11,6 @@
     export default {
 
         props: ['task'],
-
-        data(){
-            return{
-
-            }
-        },
 
         methods:{
             deleteTask(){

@@ -17,7 +17,6 @@
         data(){
             return{
                 notes: this.tasks
-
             }
         },
 

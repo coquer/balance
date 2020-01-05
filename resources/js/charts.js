@@ -5,7 +5,7 @@ window.myChart = new Chart(ctx, {
     type: 'line',
     data: {
         datasets: [{
-            label: 'לפי חודשים',
+            label: 'תשלומים אשר שולמו בשנה הנכחית',
             data: balance.amounts,
             borderWidth: 1
         }],

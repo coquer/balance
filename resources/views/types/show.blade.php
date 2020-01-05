@@ -45,11 +45,18 @@
 
 @section('js')
     <script src="{{mix('js/charts.js')}}"></script>
+
     <script>
         function displayNewDataOnChart() {
             let dropdown = document.getElementById("selectDataYear");
             let value = dropdown.options[dropdown.selectedIndex].value;
-            console.log(value);
+            axios.put(`/types/${window.balance.type.id}`, {
+                typeId: window.balance.type.id,
+                year: value
+            }).then(({data}) =>{
+                myChart.data.datasets[0].data = data.amounts;
+                myChart.update();
+            })
         }
     </script>
 @endsection

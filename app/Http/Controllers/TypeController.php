@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Activity;
 use App\Http\Traits\Chartable;
 use App\Type;
+use Carbon\Carbon;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\View\View;
 use JavaScript;
 
 class TypeController extends Controller
@@ -59,22 +62,26 @@ class TypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Type  $type
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param Type $type
+     * @param int $year
+     * @return Factory|View
      */
     public function show(Type $type)
     {
-        $chartData = $this->buildChartData($type);
+        $date = Carbon::now();
+        $year = request()->has('year') ? request()->year : $date->year;
+
+        $chartData = $this->buildChartData($type, $year);
         $typeActivitiesList = $type->activity()->get();
 
-        JavaScript::put(["amounts"=> Arr::flatten($chartData), "nameOfChart" => $type->name, 'typeActivitiesList'=>$typeActivitiesList]);
+        JavaScript::put(["amounts"=> Arr::flatten($chartData), "nameOfChart" => $type->name, 'typeActivitiesList'=>$typeActivitiesList, 'type'=>$type]);
         return view('types.show', compact('type'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Type  $type
+     * @param Type $type
      * @return \Illuminate\Http\Response
      */
     public function edit(Type $type)
@@ -82,22 +89,21 @@ class TypeController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Type  $type
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Type $type)
+
+    public function update($typeId)
     {
-        //
+        $type = Type::find($typeId);
+        $chartData = $this->buildChartData($type, request()->year);
+        $typeActivitiesList = $type->activity()->get();
+        if(request()->expectsJson()){
+            return ["amounts"=> Arr::flatten($chartData), "nameOfChart" => $type->name, 'typeActivitiesList'=>$typeActivitiesList, 'type'=>$type];
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Type  $type
+     * @param Type $type
      * @return \Illuminate\Http\Response
      */
     public function destroy(Type $type)
