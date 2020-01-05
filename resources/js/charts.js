@@ -7,6 +7,9 @@ window.myChart = new Chart(ctx, {
         datasets: [{
             label: 'תשלומים אשר שולמו בשנה הנכחית',
             data: balance.amounts,
+            backgroundColor: [
+                'rgb(255,106,0)'
+            ],
             borderWidth: 1
         }],
         labels: ['ינואר', 'פברואר', 'מרץ', 'אפריל', 'מאי', 'יוני', 'יולי', 'אוגוסט', 'ספטמבר', 'אוקטובר', 'נובמבר', 'דצמבר']
