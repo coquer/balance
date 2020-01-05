@@ -24,9 +24,11 @@
             <hr>
             <h6 class="title is-6">דברים לזכור לגבי התגית <b>{{$type->name}}</b> </h6>
             <div class="list" style="max-width: 50%">
-                @foreach($type->task as $task)
+                @forelse($type->task as $task)
                    <div class="list-item"> {{$task->content}}</div>
-                @endforeach
+                    @empty
+                        <h4 class="title is-4">לא נוספו פתקים בינתיים</h4>
+                @endforelse
             </div>
         </div>
         <div class="column is-3 m-1">
