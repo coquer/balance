@@ -14,8 +14,8 @@
                 <h6 class="title is-6">בחירת נתוני תשלום עבור שנה אחרת</h6>
                 <div class="select">
                     <select id="selectDataYear">
-                        <option value="2019">2019</option>
                         <option value="2020">2020</option>
+                        <option value="2019">2019</option>
                     </select>
                 </div>
                 <button class="button is-info is-outlined" onclick="displayNewDataOnChart()">הצג</button>
