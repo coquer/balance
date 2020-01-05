@@ -1,18 +1,10 @@
 <template>
-<section>
-    <div class="list">
-        <div class="list-item">
-            <div class="level is-mobile">
-                <div class="level-right">
-                    <p>{{task.content}}</p>
-                </div>
-                <div class="level-left">
-                    <button class="button is-small is-danger is-light" @click="deleteTask">סיימתי עם זה</button>
-                </div>
+        <div class="message">
+            <div class="message-body">
+                <p>{{task.content}}</p>
+                <button class="button is-small is-danger is-light" @click="deleteTask">סיימתי עם זה</button>
             </div>
         </div>
-    </div>
-</section>
 </template>
 
 <script>

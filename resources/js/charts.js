@@ -1,7 +1,7 @@
 require('chart.js/dist/Chart.bundle')
 
 let ctx = document.getElementById('myChart');
-let myChart = new Chart(ctx, {
+window.myChart = new Chart(ctx, {
     type: 'line',
     data: {
         datasets: [{

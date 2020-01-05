@@ -1,10 +1,12 @@
 <template>
-<div>
-    <div v-for="(task, index) in notes" :key="index">
-        <task :task="task"></task>
+<section class="section p-0">
+    <div class="list">
+        <div class="list-item" v-for="(task, index) in notes" :key="index">
+            <task :task="task"></task>
+        </div>
     </div>
     <h4 class="title is-4" v-if="notes.length==0">לא נוספו פתקים בינתיים</h4>
-</div>
+</section>
 </template>
 
 <script>

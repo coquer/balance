@@ -4,13 +4,22 @@
   בדיקת תשלומי   {{$type->name}}
 @endsection
 @section('css')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.7.95/css/materialdesignicons.min.css">
 @endsection
 
 @section('content')
     <div class="columns is-centered m-1">
         <div class="column is-7">
+            <div class="box">
+                <h6 class="title is-6">בחירת נתוני תשלום עבור שנה אחרת</h6>
+                <div class="select">
+                    <select id="selectDataYear">
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
+                <button class="button is-info is-outlined" onclick="displayNewDataOnChart()">הצג</button>
+            </div>
             <canvas id="myChart" aria-label="טבלת נתונים עבור הוצאות" role="img"></canvas>
             <hr>
             <h6 class="title is-6">דברים לזכור לגבי התגית <b>{{$type->name}}</b> </h6>
@@ -36,4 +45,11 @@
 
 @section('js')
     <script src="{{mix('js/charts.js')}}"></script>
+    <script>
+        function displayNewDataOnChart() {
+            let dropdown = document.getElementById("selectDataYear");
+            let value = dropdown.options[dropdown.selectedIndex].value;
+            console.log(value);
+        }
+    </script>
 @endsection
