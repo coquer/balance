@@ -5,7 +5,7 @@
             class="card"
             v-for="(collapse, index) of collapses"
             :key="index"
-            :open="isOpen == index"
+            :open="isOpen === index"
             @open="isOpen = index">
             <div
                 slot="trigger"

@@ -26,6 +26,7 @@
         },
 
         methods:{
+
             save(){
                 const target = document.getElementById("type");
                 const type = target.options[target.selectedIndex].value;
@@ -34,23 +35,17 @@
                 axios.post('/tasks', {
                     content: this.content,
                     type_id: type
-                }).then((response) => {
-
-                    console.log(response)
-
+                }).then(() => {
+                    EventBus.$emit('addTask', task)
+                    EventBus.$emit('flash', 'הפתק נוסף בהצלחה')
                 }).catch(function (error) {
                     console.log(error);
                 });
-
-                EventBus.$emit('addTask', task)
-                EventBus.$emit('flash', 'הפתק נוסף בהצלחה')
-
                 this.clearInputs()
-
             },
+
             clearInputs(){
-                const target = document.getElementById("type");
-                target.value = '';
+                this.content = '';
             }
         }
 
