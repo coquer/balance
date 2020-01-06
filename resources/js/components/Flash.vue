@@ -1,6 +1,4 @@
-<template>
-
-</template>
+<template></template>
 <script>
     import {EventBus} from "../app";
 
@@ -17,9 +15,8 @@
         methods:{
             flash(message) {
                 this.$buefy.snackbar.open({
-                    duration: 2500,
+                    duration: 3000,
                     message: message,
-                    type: 'is-success',
                     position: 'is-bottom-right',
                     actionText: null,
                     queue: false
