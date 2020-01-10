@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('title', 'Balance - Your Financial Place')
-@section('css')
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-@endsection
+
 @section('content')
+@include('partials.overview')
 <section class="section m-0">
     <div class="columns is-centered m-1">
         <div class="column is-6">

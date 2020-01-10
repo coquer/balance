@@ -16,6 +16,7 @@ class HomeController extends Controller
     {
         Auth::check() ? $tasks = Auth::user()->task() : $tasks = null;
 
+
         return view('home', compact('tasks'));
     }
 }

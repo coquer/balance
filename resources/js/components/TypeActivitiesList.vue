@@ -17,7 +17,7 @@
                 </p>
                 <a class="card-header-icon">
                     <b-icon
-                        :icon="props.open ? 'menu-down' : 'menu-up'">
+                        :icon="props.open ? 'mdi mdi-menu-up-outline' : 'mdi mdi-menu-down-outline'">
                     </b-icon>
                 </a>
             </div>

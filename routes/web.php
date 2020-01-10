@@ -12,3 +12,4 @@ Route::resource('information', 'InformationController');
 Route::resource('budget', 'BudgetController');
 Route::resource('tasks', 'TaskController');
 
+Route::get('/test', 'ChartDataController@today');

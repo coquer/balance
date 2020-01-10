@@ -6,7 +6,6 @@ namespace App\Http\Traits;
 
 use App\Activity;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 trait Chartable

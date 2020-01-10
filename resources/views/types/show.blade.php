@@ -3,9 +3,6 @@
 @section('title')
   בדיקת תשלומי   {{$type->name}}
 @endsection
-@section('css')
-<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.7.95/css/materialdesignicons.min.css">
-@endsection
 
 @section('content')
     <div class="columns is-centered m-1">
