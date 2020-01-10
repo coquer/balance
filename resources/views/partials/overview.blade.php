@@ -1,6 +1,6 @@
 <section class="section">
     @guest
-       <h4 class="title is-4 has-text-centered"> <a href="/login">התחברו</a> או <a href="/register">הירשמו חינם</a> בכדי להתחיל</h4>
+       <h5 class="title is-5 has-text-centered"> <a href="/login">התחברו</a> או <a href="/register">הירשמו חינם</a> בכדי להתחיל</h5>
     @endguest
     <div class="tile is-ancestor">
         <div class="tile is-parent">
