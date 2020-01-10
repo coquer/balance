@@ -9,7 +9,7 @@
                 <option v-for="(type, index) in types" :key="index" :value="type.id">{{type.name}}</option>
             </b-select>
         </b-field>
-        <button class="button has-badge-rounded has-badge-left" data-badge="8" @click="save">שלח</button>
+        <button class="button" @click="save">שלח</button>
 </section>
 </template>
 
