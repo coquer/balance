@@ -14,7 +14,7 @@ class JumpStart extends Command
      * @var string
      */
 
-    protected $signature = 'site:build';
+    protected $signature = 'balance:build';
 
     /**
      * The console command description.
