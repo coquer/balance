@@ -9,9 +9,9 @@
 
 <div class="tabs is-centered is-small">
     <ul>
-        <li><a  href="{{route('types.create')}}">יצירת תגית חדשה</a></li>
-        <li><a  href="{{route('activities.create')}}">יצירת פעילות חדשה</a></li>
-        <li><a href="{{route('budget.index')}}">התקציב שלי</a></li>
+        <li><a  href="{{route('types.create')}}">@lang('general.new-tag')</a></li>
+        <li><a  href="{{route('activities.create')}}">@lang('general.new-activity')</a></li>
+        <li><a href="{{route('budget.index')}}">@lang('general.budget')</a></li>
     </ul>
 </div>
 
