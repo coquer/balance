@@ -55,7 +55,7 @@ class TypeController extends Controller
             "consumer_number" => 'required'
         ]);
 
-        Type::create($attributes);
+        Type::create($attributes + ['user_id' => auth()->user()->id]);
         return back();
     }
 

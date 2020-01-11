@@ -9,9 +9,11 @@
             @csrf
             <b-field label="סוג תשלום">
                 <b-select placeholder="סוג תשלום"  name="type_id" style="text-align: right">
-                    @foreach($types as $type)
+                    @forelse($types as $type)
                         <option value="{{$type->id}}">{{ $type->name }}</option>
-                    @endforeach
+                        @empty
+                        <option>עדיין לא יצרתם תגיות כלשהן.</option>
+                    @endforelse
                 </b-select>
             </b-field>
             <b-field label="הסכום ששולם">

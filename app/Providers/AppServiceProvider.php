@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         View::composer('*', function($view){
-            $types = Type::orderBy('name', 'asc')->get();
+            $types = auth()->check() ? auth()->user()->type()->orderBy('name', 'asc')->get(): "nothing" ;
             $globalAppBudget = auth()->check() && auth()->user()->budget() ? auth()->user()->budget() . Lang::get('general.currency') : "--";
             $globalAppActivity = auth()->check() && auth()->user()->activity() ? auth()->user()->activity() . Lang::get('general.currency') : "--" ;
             $view->with('types', $types);

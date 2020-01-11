@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Type extends Model
 {
-    protected $fillable = ['name', 'consumer_number'];
+    protected $fillable = ['name', 'consumer_number', 'user_id'];
 
     public function getRouteKeyName()
     {
