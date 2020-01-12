@@ -47,7 +47,7 @@
                     <div class="level is-mobile">
                         <div class="level-item">
                             <div class="is-widget-label">
-                                <h5 class="subtitle is-5">@lang('general.total-paid-this-month') {{$month}}</h5>
+                                <h5 class="subtitle is-5 is-spaced">@lang('general.total-paid-this-month') {{$month}}</h5>
                                 <h1 class="title is-1-mobile">{{$globalAppActivity}}</h1>
                             </div>
                         </div>
