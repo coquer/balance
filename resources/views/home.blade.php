@@ -11,7 +11,7 @@
                 <a href="/login">התחברו</a> או <a href="/register">הירשמו חינם</a> בכדי להוסיף פתקים
             @endguest
             @auth
-                <task-form :types="{{$types}}"></task-form>
+                <task-form :types="{{$globalBalanceData['types']}}"></task-form>
             @endauth
         </div>
         <div class="column is-6">

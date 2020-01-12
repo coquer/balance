@@ -30,12 +30,11 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         View::composer('*', function($view){
-            $types = auth()->check() ? auth()->user()->type()->orderBy('name', 'asc')->get(): "nothing" ;
+            $types = auth()->check() ? auth()->user()->type()->orderBy('name', 'asc')->get() : "nothing";
             $globalAppBudget = auth()->check() && auth()->user()->budget() ? auth()->user()->budget() . Lang::get('general.currency') : "--";
-            $globalAppActivity = auth()->check() && auth()->user()->activity() ? auth()->user()->activity() . Lang::get('general.currency') : "--" ;
-            $view->with('types', $types);
-            $view->with('globalAppBudget', $globalAppBudget);
-            $view->with('globalAppActivity', $globalAppActivity);
+            $globalAppActivity = auth()->check() && auth()->user()->activity() ? auth()->user()->activity() . Lang::get('general.currency') : "--";
+            $globalBalanceData = ['types' => $types, 'globalAppBudget' => $globalAppBudget, 'globalAppActivity' => $globalAppActivity];
+            $view->with('globalBalanceData', $globalBalanceData);
         });
     }
 }

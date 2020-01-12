@@ -10,7 +10,7 @@
                         <div class="level-item">
                             <div class="is-widget-label">
                                 <h5 class="subtitle is-5 is-spaced">@lang('general.budget') לחודש {{$month}}</h5>
-                                <h1 class="title is-1-mobile">{{ $globalAppBudget}}</h1>
+                                <h1 class="title is-1-mobile">{{ $globalBalanceData['globalAppBudget']}}</h1>
                             </div>
                         </div>
                         <div class="level-item has-widget-icon">
@@ -30,7 +30,7 @@
                         <div class="level-item">
                             <div class="is-widget-label">
                                 <h5 class="subtitle is-5 is-spaced">@lang('general.total-paid-this-month') {{$month}}</h5>
-                                <h1 class="title is-1-mobile">{{$globalAppActivity}}</h1>
+                                <h1 class="title is-1-mobile">{{$globalBalanceData['globalAppActivity']}}</h1>
                             </div>
                         </div>
                         <div class="level-item has-widget-icon">
@@ -61,4 +61,26 @@
             </div>
         </div>
     </div>
+
+        <div class="tile is-ancestor">
+            <div class="tile is-parent">
+                <div class="card tile is-child">
+                    <div class="card-content">
+                        <div class="level is-mobile">
+                            <div class="level-item">
+                                <div class="is-widget-label">
+                                    <h5 class="subtitle is-5 is-spaced">מצב התקציב</h5>
+                                    נוצל
+                                </div>
+                            </div>
+                            <div class="level-item has-widget-icon">
+                                <div class="is-widget-icon">
+                                    <span class="icon has-text-primary is-large"><i class="mdi mdi-chart-pie mdi-48px"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </section>

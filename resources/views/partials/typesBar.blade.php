@@ -1,7 +1,7 @@
 @auth
     <div class="tabs is-centered is-small">
         <ul>
-            @forelse($types as $type)
+            @forelse($globalBalanceData['types'] as $type)
                 <li><a href="{{route('types.show', $type)}}">{{$type->name}}</a></li>
                 @empty
                 <li>עדיין לא נוספו תגיות. הן יופיעו כאן ברגע שתיצרו אותם.</li>
