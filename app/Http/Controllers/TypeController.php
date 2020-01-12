@@ -70,11 +70,12 @@ class TypeController extends Controller
     {
         $date = Carbon::now();
         $year = request()->has('year') ? request()->year : $date->year;
+        $month = $date->month;
 
         $chartData = $this->buildChartData($type, $year);
-        $typeActivitiesList = $type->activity($year)->get();
+        $currentMonthTypeActivitiesList = $type->activity($month, $year)->get();
 
-        JavaScript::put(["amounts"=> Arr::flatten($chartData), "nameOfChart" => $type->name, 'typeActivitiesList'=>$typeActivitiesList, 'type'=>$type]);
+        JavaScript::put(["amounts"=> Arr::flatten($chartData), "nameOfChart" => $type->name, 'typeActivitiesList'=>$currentMonthTypeActivitiesList, 'type'=>$type]);
         return view('types.show', compact('type'));
     }
 

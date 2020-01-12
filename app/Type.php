@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,7 @@ class Type extends Model
         return 'name';
     }
 
-    public function activity($month = "01", $year = 2020){
+    public function activity($month = "01", $year = '2020'){
          return $this->hasMany(Activity::class)->where('user_id', Auth::user()->id)->whereMonth('paid_at', $month)->whereYear('paid_at', $year);
      }
 

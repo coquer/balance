@@ -1,6 +1,6 @@
 <template>
     <section>
-        <h5 class="title is-5">פירוט תשלומים ({{collapses.length}})</h5>
+        <h5 class="title is-5">פירוט תשלומים לחודש הנכחי({{collapses.length}})</h5>
         <b-collapse
             class="card"
             v-for="(collapse, index) of collapses"
