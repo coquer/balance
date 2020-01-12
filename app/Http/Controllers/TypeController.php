@@ -72,7 +72,7 @@ class TypeController extends Controller
         $year = request()->has('year') ? request()->year : $date->year;
 
         $chartData = $this->buildChartData($type, $year);
-        $typeActivitiesList = $type->activity()->get();
+        $typeActivitiesList = $type->activity($year)->get();
 
         JavaScript::put(["amounts"=> Arr::flatten($chartData), "nameOfChart" => $type->name, 'typeActivitiesList'=>$typeActivitiesList, 'type'=>$type]);
         return view('types.show', compact('type'));

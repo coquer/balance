@@ -1,9 +1,10 @@
 <template>
-<tr>
-    <td width="5%"><i class="mdi mdi-bell-ring-outline"></i></td>
-    <td style="text-align: right">{{task.content}}</td>
-    <td class="level-right"><button class="button is-small is-primary is-outlined" @click="deleteTask">סיימתי עם זה</button></td>
-</tr>
+    <div class="message is-info">
+        <div class="message-header" style="border-radius: 0; flex-direction: row-reverse"><button class="button is-small is-outlined" @click="deleteTask">סיימתי עם זה</button></div>
+        <div class="message-body">
+            {{task.content}}
+        </div>
+    </div>
 </template>
 
 <script>

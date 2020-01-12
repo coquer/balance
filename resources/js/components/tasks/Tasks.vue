@@ -1,36 +1,27 @@
 <template>
-    <div class="card">
-        <header class="card-header">
-            <p class="card-header-title" v-if="notes.length===0">
-                לא נוספו פתקים בינתיים
-            </p>
-        </header>
-        <div class="card-table">
-            <div class="content">
-                <table class="table is-fullwidth is-striped">
-                    <tbody>
-                     <div  v-for="(task, index) in notes" :key="index">
-                        <task :task="task"></task>
-                    </div>
-                    </tbody>
-                </table>
+    <section class="section p-0">
+        <div class="list">
+            <div class="list-item" v-for="(task, index) in notes" :key="index">
+                <task :task="task"></task>
             </div>
         </div>
-    </div>
+        <h4 class="title is-4" v-if="notes.length==0">לא נוספו פתקים בינתיים</h4>
+    </section>
 </template>
 <script>
     import {EventBus} from "../../app";
+
     export default {
         props: ['tasks'],
 
-        data(){
-            return{
+        data() {
+            return {
                 notes: this.tasks
             }
         },
 
         mounted() {
-            EventBus.$on('addTask', task =>{
+            EventBus.$on('addTask', task => {
                 this.notes.push(task)
                 axios.get('/tasks').then((response) => {
                     this.notes = response.data

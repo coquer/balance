@@ -1,15 +1,20 @@
 <template>
-<section class="m-1">
-        <b-field label="מה צריך לעשות?">
-            <b-input placeholder="מה צריך לעשות?" name="content" v-model="content"></b-input>
-        </b-field>
-
+<section style="width: 90%">
+<div class="card">
+    <div class="card-content">
+        <div class="field">
+            <div class="control">
+                <textarea class="textarea is-info" placeholder="מה צריך לעשות?" name="content" v-model="content"></textarea>
+            </div>
+        </div>
         <b-field label="לאיזה נושא זה קשור?">
             <b-select placeholder="בחר/י נושא" class="rtl" name="type_id" id="type">
                 <option v-for="(type, index) in types" :key="index" :value="type.id">{{type.name}}</option>
             </b-select>
         </b-field>
-        <button class="button" @click="save">שלח</button>
+        <button class="button is-fullwidth is-outlined is-info" @click="save">שלח</button>
+    </div>
+</div>
 </section>
 </template>
 

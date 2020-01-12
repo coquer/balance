@@ -14,8 +14,8 @@ class Type extends Model
         return 'name';
     }
 
-    public function activity(){
-         return $this->hasMany(Activity::class)->where('user_id', Auth::user()->id);
+    public function activity($month = "01", $year = 2020){
+         return $this->hasMany(Activity::class)->where('user_id', Auth::user()->id)->whereMonth('paid_at', $month)->whereYear('paid_at', $year);
      }
 
      public function task(){
