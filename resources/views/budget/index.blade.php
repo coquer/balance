@@ -21,9 +21,9 @@
             <div class="box">
                 <h6> התקציב שקבעתי עבור חודש <strong>{{$month}}</strong>:  <strong>{{number_format($currentMonthBudget)}}</strong> ש"ח.</h6>
                 <hr>
-                סך ההוצאות שלי החודש עד כה: <strong>{{number_format($totalExpensesThisMonth)}}</strong> ש"ח.
+                סך ההוצאות החודש עד היום: <strong>{{number_format($totalExpensesThisMonth)}}</strong> ש"ח.
                 <hr>
-                תקציב שנותר לאחר ההוצאות:
+                תקציב לאחר ההוצאות:
                 @if($budgetStatus < 0 )
                     <strong style="color: red">{{number_format($budgetStatus)}}</strong>
                 @elseif($budgetStatus >= 0)
