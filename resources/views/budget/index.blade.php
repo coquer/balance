@@ -5,7 +5,7 @@
 @section('content')
     <div class="columns m-1">
         <div class="column is-4">
-            <h5 class="subtitle is-5">קביעת התקציב עבור חודש <b>{{Carbon\Carbon::now()->monthName}}</b></h5>
+            <h5 class="subtitle is-5">קביעת התקציב עבור חודש <b>{{$month}}</b></h5>
             <hr>
             <form action="{{route('budget.store')}}" method="post">
                 @csrf
@@ -19,20 +19,17 @@
         </div>
         <div class="column is-4">
             <div class="box">
-                <h6> התקציב שקבעתי עבור חודש <strong>{{Carbon\Carbon::now()->monthName}}</strong>:  <strong>{{number_format($currentMonthBudget)}}</strong> ש"ח.</h6>
+                <h6> התקציב שקבעתי עבור חודש <strong>{{$month}}</strong>:  <strong>{{number_format($currentMonthBudget)}}</strong> ש"ח.</h6>
                 <hr>
                 סך ההוצאות שלי החודש עד כה: <strong>{{number_format($totalExpensesThisMonth)}}</strong> ש"ח.
                 <hr>
                 תקציב שנותר לאחר ההוצאות:
-                @if($currentMonthBudget - $totalExpensesThisMonth < 0 )
-                    <strong style="color: red">{{number_format($currentMonthBudget - $totalExpensesThisMonth)}}</strong>
-                @elseif($currentMonthBudget - $totalExpensesThisMonth >= 0)
-                    <strong style="color: green">{{number_format($currentMonthBudget - $totalExpensesThisMonth)}}</strong>
+                @if($budgetStatus < 0 )
+                    <strong style="color: red">{{number_format($budgetStatus)}}</strong>
+                @elseif($budgetStatus >= 0)
+                    <strong style="color: green">{{number_format($budgetStatus)}}</strong>
                 @endif ש"ח.
             </div>
-        </div>
-        <div class="column is-4">
-
         </div>
     </div>
 @endsection

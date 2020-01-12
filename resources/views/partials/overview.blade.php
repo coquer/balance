@@ -9,7 +9,7 @@
                     <div class="level is-mobile">
                         <div class="level-item">
                             <div class="is-widget-label">
-                                <h4 class="subtitle is-4 is-spaced">@lang('general.budget')</h4>
+                                <h4 class="subtitle is-4 is-spaced">@lang('general.budget') לחודש {{$month}}</h4>
                                 <h1 class="title is-1-mobile">{{ $globalAppBudget}}</h1>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                     <div class="level is-mobile">
                         <div class="level-item">
                             <div class="is-widget-label">
-                                <h4 class="subtitle is-4 is-spaced">@lang('general.total-paid-this-month')</h4>
+                                <h4 class="subtitle is-4 is-spaced">@lang('general.total-paid-this-month') {{$month}}</h4>
                                 <h1 class="title is-1-mobile">{{$globalAppActivity}}</h1>
                             </div>
                         </div>

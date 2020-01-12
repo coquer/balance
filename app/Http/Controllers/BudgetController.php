@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Activity;
 use App\Budget;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -23,12 +21,13 @@ class BudgetController extends Controller
      */
     public function index()
     {
-
+        $month = Carbon::now()->monthName;
         $currentMonthBudget = auth()->user()->budget();
         $totalExpensesThisMonth = auth()->user()->activity();
-//        dd($currentMonthBudget, $totalExpensesThisMonth);
+        $budgetStatus = $currentMonthBudget - $totalExpensesThisMonth;
+//        dd($currentMonthBudget, $totalExpensesThisMonth, $budgetStatus, $month);
 
-        return view('budget.index', compact('currentMonthBudget', 'totalExpensesThisMonth'));
+        return view('budget.index', compact('currentMonthBudget', 'totalExpensesThisMonth', 'budgetStatus', 'month'));
     }
 
     /**

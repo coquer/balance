@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -15,8 +16,8 @@ class HomeController extends Controller
     public function index()
     {
         Auth::check() ? $tasks = Auth::user()->task() : $tasks = null;
+        $month = Carbon::now()->monthName;
 
-
-        return view('home', compact('tasks'));
+        return view('home', compact('tasks', 'month'));
     }
 }
