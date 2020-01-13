@@ -9,7 +9,7 @@
             @csrf
             <b-field label="סוג תשלום">
                 <b-select placeholder="סוג תשלום"  name="type_id" style="text-align: right">
-                    @forelse($types as $type)
+                    @forelse($globalBalanceData['types'] as $type)
                         <option value="{{$type->id}}">{{ $type->name }}</option>
                         @empty
                         <option>עדיין לא יצרתם תגיות כלשהן.</option>
