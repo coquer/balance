@@ -70,12 +70,18 @@
                             <div class="level-item">
                                 <div class="is-widget-label">
                                     <h5 class="subtitle is-5 is-spaced">מצב התקציב</h5>
-                                    נוצל
+                                  @if($budgetStatus > 100)
+                                        <h1 class="title is-1-mobile" style="color: red">{{$budgetStatus}}% נוצלו.</h1>
+                                        <p class="help is-danger">חריגה של {{$budgetStatus - 100}}% שהם {{$totalExpensesThisMonth - $currentMonthBudget}} ש"ח.</p>
+                                      @elseif($budgetStatus < 100)
+                                        <h1 class="title is-1-mobile" style="color: green">{{$budgetStatus}}% נוצלו.</h1>
+                                        <h6 class="help is-success"> <b>נותרו עוד {{$currentMonthBudget - $totalExpensesThisMonth}} עד לרף התקציב.</b></h6>
+                                    @endif
                                 </div>
                             </div>
                             <div class="level-item has-widget-icon">
                                 <div class="is-widget-icon">
-                                    <span class="icon has-text-primary is-large"><i class="mdi mdi-chart-pie mdi-48px"></i></span>
+                                    <span class="icon has-text-primary is-large"><i class="mdi mdi-chart-arc mdi-48px"></i></span>
                                 </div>
                             </div>
                         </div>

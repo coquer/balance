@@ -17,7 +17,11 @@ class HomeController extends Controller
     {
         Auth::check() ? $tasks = Auth::user()->task() : $tasks = null;
         $month = Carbon::now()->monthName;
+        $currentMonthBudget = auth()->check() && auth()->user()->budget() ? auth()->user()->budget() : '1';
+        $totalExpensesThisMonth = auth()->check() && auth()->user()->activity() ? auth()->user()->activity() : '1';
+        $budgetStatus = number_format(($totalExpensesThisMonth / $currentMonthBudget) * 100);
+        //dd($budgetStatus);
 
-        return view('home', compact('tasks', 'month'));
+        return view('home', compact('tasks', 'month', 'budgetStatus', 'currentMonthBudget', 'totalExpensesThisMonth'));
     }
 }

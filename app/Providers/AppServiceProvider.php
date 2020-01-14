@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Method;
 use App\Type;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\View;
@@ -31,9 +32,10 @@ class AppServiceProvider extends ServiceProvider
 
         View::composer('*', function($view){
             $types = auth()->check() ? auth()->user()->type()->orderBy('name', 'asc')->get() : "nothing";
+            $methods = Method::all();
             $globalAppBudget = auth()->check() && auth()->user()->budget() ? auth()->user()->budget() . Lang::get('general.currency') : "--";
             $globalAppActivity = auth()->check() && auth()->user()->activity() ? auth()->user()->activity() . Lang::get('general.currency') : "--";
-            $globalBalanceData = ['types' => $types, 'globalAppBudget' => $globalAppBudget, 'globalAppActivity' => $globalAppActivity];
+            $globalBalanceData = ['types' => $types, 'globalAppBudget' => $globalAppBudget, 'globalAppActivity' => $globalAppActivity, 'methods' => $methods];
             $view->with('globalBalanceData', $globalBalanceData);
         });
     }

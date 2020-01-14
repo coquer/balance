@@ -13,7 +13,7 @@
                 class="card-header"
                 role="button">
                 <p class="card-header-title">
-                    סכום: {{ collapse.amount }}
+                    סכום: {{ collapse.amount }} ש"ח
                 </p>
                 <a class="card-header-icon">
                     <b-icon
