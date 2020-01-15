@@ -2,25 +2,7 @@
 @section('title','התחברות')
 @section('css')
     <style>
-        .box {
-            margin-top: 5rem;
-        }
-        .avatar {
-            margin-top: -70px;
-            padding-bottom: 20px;
-        }
-        .avatar img {
-            padding: 5px;
-            background: #fff;
-            border-radius: 50%;
-            box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
-        }
-        input {
-            font-weight: 300;
-        }
-        p {
-            font-weight: 700;
-        }
+        .box {margin-top: 5rem;}  .avatar {margin-top: -70px;padding-bottom: 20px;}  .avatar img {padding: 5px;background: #fff;border-radius: 50%;box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);}  input {font-weight: 300;}  p {font-weight: 700;}
     </style>
 @endsection
 @section('content')
