@@ -24,7 +24,7 @@
     </style>
 @endsection
 @section('content')
-    <section class="hero is-fullheight">
+    <section class="hero">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="columns is-centered">
