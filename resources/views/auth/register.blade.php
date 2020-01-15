@@ -2,9 +2,6 @@
 @section('title','Register to Balance')
 @section('css')
     <style>
-        .hero.is-success {
-            background: #F2F6FA;
-        }
         .hero .nav, .hero.is-success .nav {
             box-shadow: none;
         }
@@ -38,7 +35,7 @@
     </style>
 @endsection
 @section('content')
-    <section class="hero is-fullheight">
+    <section class="hero">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="columns is-centered">
