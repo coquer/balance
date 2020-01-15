@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Activity;
 use App\Http\Traits\Chartable;
+use App\Task;
 use App\Type;
 use Carbon\Carbon;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Arr;
 use Illuminate\View\View;
 use JavaScript;
@@ -24,7 +26,7 @@ class TypeController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -34,7 +36,7 @@ class TypeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -44,8 +46,8 @@ class TypeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -68,14 +70,13 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        $date = Carbon::now();
-        $year = request()->has('year') ? request()->year : $date->year;
-        $month = $date->month;
+
+        list($year, $month) = $this->date();
 
         $chartData = $this->buildChartData($type, $year);
         $currentMonthTypeActivitiesList = $type->activity($month, $year)->get();
+        JavaScript::put(["amounts" => Arr::flatten($chartData), "nameOfChart" => $type->name, 'typeActivitiesList' => $currentMonthTypeActivitiesList, 'type' => $type]);
 
-        JavaScript::put(["amounts"=> Arr::flatten($chartData), "nameOfChart" => $type->name, 'typeActivitiesList'=>$currentMonthTypeActivitiesList, 'type'=>$type]);
         return view('types.show', compact('type'));
     }
 
@@ -83,7 +84,7 @@ class TypeController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param Type $type
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(Type $type)
     {
@@ -96,8 +97,8 @@ class TypeController extends Controller
         $type = Type::find($typeId);
         $chartData = $this->buildChartData($type, request()->year);
         $typeActivitiesList = $type->activity()->get();
-        if(request()->expectsJson()){
-            return ["amounts"=> Arr::flatten($chartData), "nameOfChart" => $type->name, 'typeActivitiesList'=>$typeActivitiesList, 'type'=>$type];
+        if (request()->expectsJson()) {
+            return ["amounts" => Arr::flatten($chartData), "nameOfChart" => $type->name, 'typeActivitiesList' => $typeActivitiesList, 'type' => $type];
         }
     }
 
@@ -105,10 +106,21 @@ class TypeController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Type $type
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(Type $type)
     {
         //
+    }
+
+    /**
+     * @return array
+     */
+    public function date(): array
+    {
+        $date = Carbon::now();
+        $year = request()->has('year') ? request()->year : $date->year;
+        $month = $date->month;
+        return array($year, $month);
     }
 }

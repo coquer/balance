@@ -40,19 +40,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function activity(){
+    public function activity()
+    {
         return $this->hasMany(Activity::class)->whereMonth('paid_at', Carbon::now()->month)->sum('amount');
     }
 
-    public function type(){
+    public function type()
+    {
         return $this->hasMany(Type::class);
     }
 
-    public function budget(){
+    public function budget()
+    {
         return $this->hasMany(Budget::class)->whereMonth('created_at', Carbon::now()->month)->latest()->pluck('budget')->first();
     }
 
-    public function task(){
+    public function task()
+    {
         return $this->hasMany(Task::class)->where('done', false)->get();
     }
 }

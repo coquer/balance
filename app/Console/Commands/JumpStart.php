@@ -33,7 +33,8 @@ class JumpStart extends Command
         parent::__construct();
     }
 
-    public function executeCommand($command) {
+    public function executeCommand($command)
+    {
         $process = new Process($command);
         $process->setTty(true);
         $process->run();
@@ -44,17 +45,20 @@ class JumpStart extends Command
         echo $process->getOutput();
     }
 
-    public function composerInstall() {
+    public function composerInstall()
+    {
         $this->executeCommand(['composer', 'install']);
     }
 
-    public function artisanPrepare() {
+    public function artisanPrepare()
+    {
         $this->executeCommand(['cp', '.env.example', '.env']);
         $this->executeCommand(['php', 'artisan', 'key:generate']);
         $this->executeCommand(['php', 'artisan', 'storage:link']);
     }
 
-    public function npmInstall(){
+    public function npmInstall()
+    {
         $this->executeCommand(['npm', 'install']);
         $this->executeCommand(['npm', 'run:dev']);
 

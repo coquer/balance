@@ -13,17 +13,19 @@ use Illuminate\Support\Carbon;
 
 class ChartDataController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
     }
 
-    public function today(){
+    public function today()
+    {
         $arr = ['01', '02', '03', '04', '05', '06', '07', '08', '09', 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, '00'];
 
         $today = Carbon::now()->format('d');
 //
         $a = Activity::all();
-        for($i = 1; $i <= count($arr); $i++){
+        for ($i = 1; $i <= count($arr); $i++) {
             $k = $a->whereDay('created_at', $today)->whereTime('paid_at', array_search())->get();
             dd(Arr::flatten($k));
         }
@@ -34,15 +36,18 @@ class ChartDataController extends Controller
 
     }
 
-    public function week(){
+    public function week()
+    {
 
     }
 
-    public function month(){
+    public function month()
+    {
 
     }
 
-    public function year(){
+    public function year()
+    {
 
     }
 }

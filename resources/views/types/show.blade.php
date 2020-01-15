@@ -20,7 +20,7 @@
             <canvas id="myChart" aria-label="טבלת נתונים עבור הוצאות" role="img"></canvas>
             <hr>
             <h6 class="title is-6">דברים לזכור לגבי התגית <b>{{$type->name}}</b> </h6>
-            <div class="list" style="max-width: 50%">
+            <div class="list" style="box-shadow: none; color: black; border-radius: 0">
                 @forelse($type->task as $task)
                    <div class="list-item"> {{$task->content}}</div>
                     @empty
