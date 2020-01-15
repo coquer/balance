@@ -61,7 +61,7 @@
             </div>
         </div>
     </div>
-
+        @auth
         <div class="tile is-ancestor">
             <div class="tile is-parent">
                 <div class="card tile is-child">
@@ -89,4 +89,5 @@
                 </div>
             </div>
         </div>
+     @endauth
 </section>

@@ -3,26 +3,20 @@
 
 @section('content')
 @include('partials.overview')
+
+@auth
 <section class="section m-0">
     <div class="columns is-centered m-1">
         <div class="column is-6">
             <h4 class="title is-4">@lang('general.add-a-note')</h4>
-            @guest
-                <a href="/login">התחברו</a> או <a href="/register">הירשמו חינם</a> בכדי להוסיף פתקים
-            @endguest
-            @auth
-                <task-form :types="{{$globalBalanceData['types']}}"></task-form>
-            @endauth
+            <task-form :types="{{$globalBalanceData['types']}}"></task-form>
         </div>
         <div class="column is-6">
             <h5 class="title is-5">@lang('general.my-notes')</h5>
-            @guest
-                <a href="/login">התחברו</a> או <a href="/register">הירשמו חינם</a> בכדי לצפות  בפתקים
-            @endguest
-            @auth
                 <tasks :tasks="{{$tasks}}"></tasks>
-            @endauth
         </div>
     </div>
 </section>
+@endauth
+
 @endsection
