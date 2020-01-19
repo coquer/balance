@@ -2,9 +2,9 @@
     <div class="tabs is-centered is-small">
         <ul>
             @forelse($globalBalanceData['types'] as $type)
-                <li><a href="{{route('types.show', $type)}}">{{$type->name}}</a></li>
+                <li><a href="{{route('types.show',  $type)}}">{{$type->name}}</a></li>
                 @empty
-                <li>עדיין לא נוספו תגיות. הן יופיעו כאן ברגע שתיצרו אותם.</li>
+                <li>{{__('general.no-tags-added')}}</li>
             @endforelse
         </ul>
     </div>
@@ -13,10 +13,10 @@
 
 <div class="tabs is-centered is-small">
     <ul>
-        <li><a  href="{{route('types.create')}}">@lang('general.new-tag')</a></li>
-        <li><a  href="{{route('activities.create')}}">@lang('general.new-activity')</a></li>
-        <li><a href="{{route('budget.index')}}">@lang('general.budget')</a></li>
-        @auth<li onclick="document.querySelector('.modal').classList.add('is-active')"><a>פתק חדש</a></li>@endauth
+        <li><a  href="{{route('types.create')}}">{{__('general.new-tag')}}</a></li>
+        <li><a  href="{{route('activities.create')}}">{{__('general.new-activity')}}</a></li>
+        <li><a href="{{route('budget.index')}}">{{__('general.budget')}}</a></li>
+        @auth<li onclick="document.querySelector('.modal').classList.add('is-active')"><a>{{__('general.add-a-note')}}</a></li>@endauth
     </ul>
 </div>
 

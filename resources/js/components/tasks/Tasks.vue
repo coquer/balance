@@ -21,9 +21,10 @@
         },
 
         mounted() {
+            let path = location.pathname.split('/')[1] + '/tasks';
             EventBus.$on('addTask', task => {
                 this.notes.push(task)
-                axios.get('/tasks').then((response) => {
+                axios.get(path).then((response) => {
                     this.notes = response.data
                 })
             })

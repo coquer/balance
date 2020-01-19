@@ -5,6 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Type extends Model
 {
     protected $fillable = ['name', 'consumer_number', 'user_id'];

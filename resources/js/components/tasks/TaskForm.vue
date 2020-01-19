@@ -7,8 +7,8 @@
                 <textarea class="textarea is-info" placeholder="מה צריך לעשות?" name="content" v-model="content"></textarea>
             </div>
         </div>
-        <b-field label="לאיזה נושא זה קשור?">
-            <b-select placeholder="בחר/י נושא" class="rtl" name="type_id" id="type">
+        <b-field  label="לאיזה נושא זה קשור?">
+            <b-select aria-placeholder="בחרו נושא" placeholder="בחרו נושא" class="rtl" name="type_id" id="type">
                 <option v-for="(type, index) in types" :key="index" :value="type.id">{{type.name}}</option>
             </b-select>
         </b-field>
@@ -36,13 +36,14 @@
                 const target = document.getElementById("type");
                 const type = target.options[target.selectedIndex].value;
                 let task = {content: this.content, type: type}
-
-                axios.post('/tasks', {
+                let path = location.pathname.split('/')[1] + '/tasks';
+                axios.post(path, {
                     content: this.content,
                     type_id: type
-                }).then(() => {
+                }).then(({data}) => {
+                    console.log({data})
                     EventBus.$emit('addTask', task)
-                    EventBus.$emit('flash', 'הפתק נוסף בהצלחה')
+                    EventBus.$emit('flash', data.message)
                 }).catch(function (error) {
                     console.log(error);
                 });

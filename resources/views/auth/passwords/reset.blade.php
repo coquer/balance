@@ -5,10 +5,6 @@
         .hero.is-success {
             background: #F2F6FA;
         }
-        .hero .nav, .hero.is-success .nav {
-            -webkit-box-shadow: none;
-            box-shadow: none;
-        }
         .box {
             margin-top: 5rem;
         }
@@ -34,13 +30,10 @@
         p {
             font-weight: 700;
         }
-        p.subtitle {
-            padding-top: 1rem;
-        }
     </style>
 @endsection
 @section('content')
-    <section class="hero is-success is-fullheight">
+    <section class="hero is-success">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="columns is-centered">
@@ -50,7 +43,7 @@
                             <figure class="avatar">
                                 <img src="{{asset('storage/icons/reset.png')}}">
                             </figure>
-                            <form class="login-form" method="POST" action="{{ route('password.update') }}">
+                            <form class="login-form" method="POST" action="{{ route('password.update', app()->getLocale()) }}">
                                 @csrf
                                 <div class="field">
                                     <div class="control">

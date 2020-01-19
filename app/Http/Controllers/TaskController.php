@@ -33,10 +33,11 @@ class TaskController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+     * @return array|Response
      */
     public function store(Request $request)
     {
+
         $attr = $request->validate([
             'type_id' => 'required',
             'content' => 'required'
@@ -45,10 +46,9 @@ class TaskController extends Controller
         $task = Task::create(['user_id' => Auth::user()->id] + $attr);
 
         if (request()->expectsJson()) {
-            $request->session()->flash('flash', 'הפתק נוסף בהצלחה');
-            return $task;
+            return [$task, 'message'=>__('general.note-added')];
         }
-        return back()->with('flash', 'הפתק לא נוסף בהצלחה');
+        return back();
     }
 
     /**
@@ -91,8 +91,9 @@ class TaskController extends Controller
      * @param Task $task
      * @return Response
      */
-    public function destroy(Task $task)
+    public function destroy()
     {
+        $task = Task::find(request('id'));
         $task->delete();
         if (request()->expectsJson()) {
             return 'הפתק נמחק בהצלחה';

@@ -17,7 +17,7 @@
                         </div>
                     @endif
 
-                    <form class="forgot-password-form" method="POST" action="{{ route('password.email') }}">
+                    <form class="forgot-password-form" method="POST" action="{{ route('password.email', app()->getLocale()) }}">
 
                         {{ csrf_field() }}
 

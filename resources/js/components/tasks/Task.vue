@@ -15,7 +15,12 @@
         props: ['task', 'place'],
         methods:{
             deleteTask(){
-                axios.delete('/tasks/'+ this.task.id).then(() => {
+                let path = location.pathname.split('/')[1] + '/tasks/';
+                axios.delete(path + this.task.id, {
+                    data:{
+                        id: this.task.id
+                    }
+                }).then((res) => {
                     location.reload()
                 })
             }

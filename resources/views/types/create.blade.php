@@ -1,19 +1,22 @@
 @extends('layouts.app')
-@section('title', 'יצירת תגית חדשה')
+@section('title'){{__('general.new-tag')}}@endsection
 
 @section('content')
 <div class="columns is-centered m-1">
     <div class="column is-5">
-        <h1 class="title is-1-mobile">יצירת תגית חדשה</h1>
+        <h1 class="title is-1-mobile">{{__('general.new-tag')}}</h1>
         <form action="{{route('types.store')}}" method="post">
             @csrf
-            <b-field label="שם התגית">
-                <b-input type="text" placeholder="שם התגית(חשמל/מים/גז וכו)" name="name"></b-input>
+            <b-field label="{{__('general.new-tag-name')}}">
+                <b-input type="text" placeholder="{{__('general.new-tag-name')}}" name="name"></b-input>
             </b-field>
-            <b-field label="מספר צרכן">
-                <b-input type="number" placeholder="מספר צרכן" name="consumer_number"></b-input>
+            <b-field label="{{__('general.new-tag-consumer-number')}}">
+                <div class="control">
+                    <b-input type="number" placeholder="{{__('general.new-tag-consumer-number')}}" name="consumer_number"></b-input>
+                    <p class="help is-danger" style="text-align: right">{{__('general.consumer-number-help')}}</p>
+                </div>
             </b-field>
-            <b-button type="is-success" outlined native-type="submit">אישור</b-button>
+            <b-button type="is-fullwidth is-success" outlined native-type="submit">{{__('general.bill-form-submit')}}</b-button>
         </form>
     </div>
 </div>

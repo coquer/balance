@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Activity;
-use App\Type;
-use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
+use Illuminate\Contracts\View\Factory;
 
 class ActivityController extends Controller
 {
@@ -57,7 +56,11 @@ class ActivityController extends Controller
             'method_id' => 'required'
         ]);
 
-        Activity::create(["user_id" => Auth::user()->id] + $attributes);
+        $uploadedFile = $request->file('image');
+        $path = $uploadedFile->storeAs('bills/'. auth()->user()->id, $uploadedFile->getClientOriginalName());
+
+
+        Activity::create(["user_id" => Auth::user()->id, 'image' => $path] + $attributes);
 
         return back();
     }

@@ -8,7 +8,4 @@ class Task extends Model
 {
     protected $guarded = [];
 
-    public function type(){
-        return $this->belongsTo(Type::class);
-    }
 }

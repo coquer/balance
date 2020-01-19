@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Activity;
 use App\Http\Traits\Chartable;
-use App\Task;
 use App\Type;
 use Carbon\Carbon;
 use Illuminate\Contracts\View\Factory;
@@ -16,6 +14,8 @@ use JavaScript;
 
 class TypeController extends Controller
 {
+    // TODO complete this model CRUD functions
+
     use Chartable;
 
     public function __construct()
@@ -61,13 +61,7 @@ class TypeController extends Controller
         return back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param Type $type
-     * @param int $year
-     * @return Factory|View
-     */
+
     public function show(Type $type)
     {
 
@@ -110,7 +104,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+
     }
 
     /**

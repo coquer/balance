@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he">
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="windows-1255">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,6 +30,14 @@
     </div>
     @include('partials.footer')
     <script src="{{ mix('js/app.js') }}" ></script>
+    <script>
+        function setLanguage(lang){
+            axios.post('/language/'+ lang).then(() => {
+               location.reload()
+            })
+        }
+
+    </script>
      @yield('js')
 </body>
 </html>
